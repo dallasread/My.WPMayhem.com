@@ -9,12 +9,17 @@
 	<li>Chart of HD used ({{disk_usage}})</li>
 	<li>Chart of DB used ({{db_usage}})</li>
 	<li><s>Add SSL: On / Off</s></li>
-	<li>Your A-Record should be set to my.wpmayhem.com.</li>
+	<li>Your A-Record should be set to domains.wpmayhem.com.</li>
 	<li>Add Users</li>
 </ul>
 
 <ul>
 	{{#each backups}}
-		<li>{{name}} - <a href="#" {{action 'restoreFromBackup' .}}>Restore</a> - <a href="#" {{action 'cloneFromBackup' .}}>Clone This Version</a></li>
+		<li>
+			{{name}} - 
+			<a href="#" {{action 'restoreFromBackup' .}}>Rollback to this Version</a> - 
+			<a href="#" {{action 'cloneFromBackup' .}}>Create New Installation from Clone</a> -
+			{{started_at}}
+		</li>
 	{{/each}}
 </ul>

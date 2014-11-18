@@ -1,2 +1,7 @@
 import DS from 'ember-data';
-export default DS.FixtureAdapter;
+
+window.firebase = new window.Firebase("https://wpmayhem.firebaseio.com");
+
+export default DS.FirebaseAdapter.extend({
+  firebase: window.firebase
+});
