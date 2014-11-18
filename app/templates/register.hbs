@@ -1,39 +1,25 @@
 <div id="signup">
 
-	<a href="index.html" class="logo">
-		<i class="brankic-pen"></i>
-	</a>
-
-	<h3>Create Your Account Now</h3>
+	{{#link-to "login" class="logo"}}
+		<img src="/imgs/logo.png">
+	{{/link-to}}
 
 	<div class="content">
-		<form>
+		<form {{action 'register' on='submit'}}>
 			<div class="fields">
-				<strong>Your information</strong>
-				<input class="form-control" type="text" placeholder="Your full name" />
-				<input class="form-control" type="text" placeholder="Company name" />
-				<input class="form-control" type="text" placeholder="Your age" />
+				<label>Full Name</label>
+				{{input value=name type="name" placeholder="Your full name" class="form-control"}}
 			</div>
 			<div class="fields">
-				<strong>Your access data</strong>
-				<input class="form-control" type="text" placeholder="Your email" />
-				<input class="form-control" type="password" placeholder="Password" />
-				<input class="form-control" type="password" placeholder="Confirm password" />
+				<label>Email Address</label>
+				{{input value=email type="email" placeholder="Your email address" class="form-control"}}
 			</div>
 			<div class="fields">
-				<strong>
-					Payment information
-					<img src="images/credit_card_types.gif" class="pull-right" />
-				</strong>
-				<input class="form-control" type="text" placeholder="Credit Card Number" />
-				<input class="form-control" type="text" placeholder="MM / YY" />
-				<input class="form-control" type="text" placeholder="CVV" />
+				<label>Password</label>
+				{{input value=password type="password" placeholder="Your password" class="form-control"}}
 			</div>
-			<div class="info">
-				Your 30-day trial will start now. After your trial ends, your credit card will be charged for the monthly <strong>Business plan for $59.00 USD on April 12, 2014.</strong>
-			</div>
-			<div class="signup">
-				<a href="index.html" class="btn btn-success btn-lg">Create my account</a>
+			<div class="actions">
+				<button type="submit" class="btn btn-success btn-lg">Create my Account</button>
 			</div>
 		</form>
 	</div>

@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
 			}).save();
 			this.set('name', '');
 			this.set('address', '');
-			this.transitionToRouteRoute('dashboard.dashboard.installations.show', installation);
+			this.transitionToRoute('dashboard.installations.show', installation);
 			return false;
 		}
 	}

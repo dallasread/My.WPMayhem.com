@@ -1,29 +1,21 @@
 <div id="signin">
 
-	<a href="index.html" class="logo">
-		<i class="brankic-pen"></i>
-	</a>
-
-	<h3>Welcome back!</h3>
+	{{#link-to "register" class="logo"}}
+		<img src="/imgs/logo.png">
+	{{/link-to}}
 
 	<div class="content">
-		<form action="/dashboard">
+		<form {{action 'login' on='submit'}}>
 			<div class="fields">
-				<strong>Email address</strong>
-				<input class="form-control" type="text" placeholder="Your email" />
+				<label>Email address</label>
+				{{input value=email type="email" placeholder="Your email address" class="form-control"}}
 			</div>
 			<div class="fields">
-				<strong>Password</strong>
-				<input class="form-control" type="password" placeholder="Password" />
-			</div>
-			<div class="info">
-				<label>
-					<input type="checkbox" name="remember" checked />
-					Remember me
-				</label>
+				<label>Password</label>
+				{{input value=password type="password" placeholder="Your password" class="form-control"}}
 			</div>
 			<div class="actions">
-				<button type="submit" class="btn btn-primary btn-lg">Sign in to your account</button>
+				<button type="submit" class="btn btn-success btn-lg"><i class="fa fa-lock"></i>Log In</button>
 			</div>
 		</form>
 	</div>

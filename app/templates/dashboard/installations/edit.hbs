@@ -4,7 +4,7 @@
 	Awesome instructions...
 </p>
 
-<form {{action updateInstallation . on="submit"}}>
+<form {{action 'updateInstallation' . on="submit"}}>
 	<div class="form-group">
 		<label>Where do you want to install WordPress?</label>
 		{{input value=address type="text" placeholder="www.yourwebsite.com" class="form-control"}}
@@ -19,5 +19,5 @@
 </form>
 
 {{#if .}}
-	<a {{action deleteInstallation .}} class="new-user btn btn-danger pull-right">Delete Installation</a>
+	<a {{action 'deleteInstallation' .}} class="new-user btn btn-danger pull-right">Delete Installation</a>
 {{/if}}

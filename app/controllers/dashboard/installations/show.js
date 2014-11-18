@@ -23,7 +23,7 @@ export default Ember.ObjectController.extend({
 				data.name += ' Clone';
 				data.restore_id = backup.id;
 				var new_installation = e.store.createRecord('installation', data).save();
-				e.transitionToRouteRoute('dashboard.dashboard.installations.show', new_installation);
+				e.transitionToRoute('dashboard.installations.show', new_installation);
 			});
 		}
 	}
