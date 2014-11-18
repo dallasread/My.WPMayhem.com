@@ -4,26 +4,19 @@ export default {
   name: 'session',
   initialize: function(container, app) {
 		var session = Ember.Object.extend({
-			auth: false,
+			auth: null,
+			user: null,
 			init: function() {
 				var e = this;
 				window.firebase = new window.Firebase("https://wpmayhem.firebaseio.com");
 				window.firebase.onAuth(function(auth) {
 				  if (auth) {
-						var user = { id: auth.uid };
-						e.set('auth', user);
-						
-						window.firebase.child('users/' + user.id).on('value', function(snapshot) {
-							var user = snapshot.val();
-							
-							if (user) {
-								user.id = auth.uid;
-								e.set('auth', user);
-							}
-						});
+						var store = container.lookup('store:main');
+						e.set('auth', auth);
+						e.set('user', store.find('user', auth.uid));
 				  } else {
-						console.log('logged out');
-						e.set('auth', false);
+						e.set('auth', null);
+						e.set('user', null);
 				  }
 				});
 			}

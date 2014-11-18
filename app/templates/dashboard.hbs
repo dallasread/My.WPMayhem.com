@@ -5,7 +5,7 @@
 				{{#link-to "dashboard.me" class="name"}}
 					<img class="avatar" src="images/avatars/1.jpg" />
 					<span>
-						{{session.auth.name}}
+						{{session.user.name}}
 						<!-- <i class="fa fa-chevron-down"></i> -->
 					</span>
 				{{/link-to}}
@@ -37,7 +37,7 @@
 						{{/link-to}}
 						
 						<ul class="submenu" style="display: block; ">
-							{{#each installations}}
+							{{#each session.user.installations}}
 								<li>
 									{{#link-to "dashboard.installations.show" . class="name"}}
 										{{name}}

@@ -9,6 +9,7 @@ export default Ember.ObjectController.extend({
 		},
 		deleteInstallation: function(installation) {
 			if (confirm('Are you sure you want to delete this installation?')) {
+				window.firebase.child('users/' + this.get('session.auth.uid') + '/installations/' + installation.id).remove();
 				installation.destroyRecord();
 				this.transitionToRoute('dashboard');
 			}

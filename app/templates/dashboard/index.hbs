@@ -12,7 +12,7 @@
 			{{/link-to}}
 		</div>
 		
-		{{#each installations}}
+		{{#each session.user.installations}}
 			<div class="project">
 				<div class="info">
 					{{#link-to "dashboard.installations.show" . class="name"}}

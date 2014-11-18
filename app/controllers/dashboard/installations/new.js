@@ -3,14 +3,17 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	actions: {
 		createInstallation: function() {
-			var installation = this.store.createRecord('installation', {
+			var e = this;
+			this.store.createRecord('installation', {
 				name: this.get('name'),
 				address: this.get('address')
-			}).save();
-			this.set('name', '');
-			this.set('address', '');
-			this.transitionToRoute('dashboard.installations.show', installation);
-			return false;
+			}).save().then(function(installation) {
+				window.firebase.child('users/' + e.get('session.auth.uid') + '/installations/' + installation.id).set(true);
+				window.firebase.child('installations/' + installation.id + '/users/' + e.get('session.auth.uid')).set(true);
+				e.set('name', '');
+				e.set('address', '');
+				e.transitionToRoute('dashboard.installations.show', installation);
+			});
 		}
 	}
 });

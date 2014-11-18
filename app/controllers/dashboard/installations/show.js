@@ -22,8 +22,11 @@ export default Ember.ObjectController.extend({
 				var data = installation.toJSON();
 				data.name += ' Clone';
 				data.restore_id = backup.id;
-				var new_installation = e.store.createRecord('installation', data).save();
-				e.transitionToRoute('dashboard.installations.show', new_installation);
+				e.store.createRecord('installation', data).save().then(function(new_installation) {
+					window.firebase.child('users/' + e.get('session.auth.uid') + '/installations/' + new_installation.id).set(true);
+					window.firebase.child('installations/' + new_installation.id + '/users/' + e.get('session.auth.uid')).set(true);
+					e.transitionToRoute('dashboard.installations.show', new_installation);
+				});
 			});
 		}
 	}

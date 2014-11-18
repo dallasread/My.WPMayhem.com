@@ -4,13 +4,13 @@ export default Ember.Controller.extend({
 	needs: ['user'],
 	actions: {
 		redirectIfNotAuthenticated: function(transition) {
-			if (!this.get('session.auth')) {
+			if (!this.get('session.user')) {
 			  this.set('previousTransition', transition);
 				this.transitionToRoute('login');
 			}
 		},
 		redirectIfAuthenticated: function() {
-			if (this.get('session.auth')) {
+			if (this.get('session.user')) {
 				this.transitionToRoute('dashboard');
 			}
 		},
