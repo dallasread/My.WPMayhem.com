@@ -1,0 +1,23 @@
+{{partial "dashboard/header"}}
+
+<p class="intro">
+	Awesome instructions...
+</p>
+
+<form {{action updateInstallation . on="submit"}}>
+	<div class="form-group">
+		<label>Where do you want to install WordPress?</label>
+		{{input value=address type="text" placeholder="www.yourwebsite.com" class="form-control"}}
+	</div>
+	<div class="form-group">
+		<label>What is the nickname of this installation?</label>
+		{{input value=name type="text" placeholder="YourWebsite.com" class="form-control"}}
+	</div>
+	<div class="form-group action">
+		<input type="submit" class="btn btn-success" value="Install WordPress" />
+	</div>
+</form>
+
+{{#if .}}
+	<a {{action deleteInstallation .}} class="new-user btn btn-danger pull-right">Delete Installation</a>
+{{/if}}

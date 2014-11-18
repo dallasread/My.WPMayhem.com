@@ -1,0 +1,22 @@
+<div class="menubar">
+	<div class="sidebar-toggler visible-xs">
+		<i class="ion-navicon"></i>
+	</div>
+
+	<div class="page-title">
+		{{#if name}}
+			{{name}}
+		{{else}}
+			Your WordPress Sites
+		{{/if}}
+	</div>
+	{{#if name}}
+		{{#link-to "dashboard.installations.edit" . class="new-user btn btn-success pull-right"}}
+			<span>Edit Info</span>
+		{{/link-to}}
+	{{else}}
+		{{#link-to "dashboard.installations.new" class="new-user btn btn-success pull-right"}}
+			<span>Add Installation</span>
+		{{/link-to}}
+	{{/if}}
+</div>

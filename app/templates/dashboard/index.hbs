@@ -1,0 +1,45 @@
+{{partial "dashboard/header"}}
+
+<div class="content-wrapper clearfix">
+	<div class="row project-list">
+		
+		<div class="project new">
+			{{#link-to "dashboard.installations.new"}}
+				<i class="ion-ios7-plus-outline"></i>
+				<span class="info">
+					Create a New Installation
+				</span>
+			{{/link-to}}
+		</div>
+		
+		{{#each installations}}
+			<div class="project">
+				<div class="info">
+					{{#link-to "dashboard.installations.show" . class="name"}}
+						{{name}}
+					{{/link-to}}
+					<div class="category">Design & Development</div>
+					<div class="last-update">
+						Last updated 3 hours ago
+					</div>
+				</div>
+				<div class="members">
+					<img src="images/avatars/3.jpg" />
+					<img src="images/avatars/7.jpg" />
+					<img src="images/avatars/14.jpg" />
+					<img src="images/avatars/15.jpg" />
+				
+					<a href="#" class="add-more">
+						<i class="fa fa-plus"></i>
+					</a>
+					<ul class="menu">
+						<li><a href="#">Invite a new user</a></li>
+						<li><a href="#">Change name</a></li>
+						<li><a href="#">Delete project</a></li>
+					</ul>
+				</div>
+			</div>
+		{{/each}}
+		
+	</div>
+</div>

@@ -1,0 +1,20 @@
+{{partial "dashboard/header"}}
+
+<ul>
+	<li>WP Admin: <a {{bind-attr href=wp_admin}}>{{wp_admin}}</a></li>
+	<li>phpMyAdmin: <a {{bind-attr href=php_my_admin}}>{{php_my_admin}}</a></li>
+	<li>
+		<button {{action 'backupInstallation' .}}>Backup</button>
+	</li>
+	<li>Chart of HD used ({{disk_usage}})</li>
+	<li>Chart of DB used ({{db_usage}})</li>
+	<li><s>Add SSL: On / Off</s></li>
+	<li>Your A-Record should be set to my.wpmayhem.com.</li>
+	<li>Add Users</li>
+</ul>
+
+<ul>
+	{{#each backups}}
+		<li>{{name}} - <a href="#" {{action 'restoreFromBackup' .}}>Restore</a> - <a href="#" {{action 'cloneFromBackup' .}}>Clone This Version</a></li>
+	{{/each}}
+</ul>
