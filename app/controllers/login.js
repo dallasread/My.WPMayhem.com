@@ -14,30 +14,40 @@ export default Ember.Controller.extend({
 				this.transitionToRoute('dashboard');
 			}
 		},
-		login: function() {
+		login: function(user, update_attrs) {
 			var e = this;
-				
-			if (this.get('email') && this.get('password')) {
-
-				window.firebase.authWithPassword({
-				  email: this.get('email'),
-				  password: this.get('password')
-				}, function(error, authData) {
-				  if (error === null) {
-				    var userController = e.get('controllers.user');
-					  var previousTransition = userController.get('previousTransition');
-						if (previousTransition) {
-							userController.set('previousTransition', null);
-							previousTransition.retry();
-						} else {
-							e.transitionToRoute('dashboard');
-						}
-				  } else {
-				    console.log("Error authenticating user:", error);
-				  }
-				});
-			} else {
-				alert("enter valid data");
+			
+			if (typeof user !== 'object') {
+				user = {
+					email: e.get('email'),
+					password: e.get('password')
+				};
+			}
+			
+			window.firebase.authWithPassword(user, function(error, auth) {
+			  if (error === null) {
+			    var userController = e.get('controllers.user');
+				  var previousTransition = userController.get('previousTransition');
+					
+					if (update_attrs !== null) {
+						window.firebase.child('users/' + auth.uid).set(update_attrs);
+					}
+			    
+					if (previousTransition) {
+						userController.set('previousTransition', null);
+						previousTransition.retry();
+					} else {
+						e.transitionToRoute('dashboard');
+					}
+			  } else {
+			    alert("invalid");
+			  }
+			});
+		},
+		logout: function() {
+			if (confirm('Are you sure you want to log out?')) {
+				window.firebase.unauth();
+				this.transitionToRoute('login');
 			}
 		}
 	}

@@ -1,19 +1,24 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	needs: ['user'],
+	needs: ['login'],
 	actions: {
 		register: function() {
 			if (this.get('email') && this.get('password')) {
-				window.firebase.createUser({
-					email: this.get('email'),
-					password: this.get('password')
-				}, function(error) {
+				var e = this;
+				var user = {
+					email: e.get('email'),
+					password: e.get('password')
+				};
+				
+				window.firebase.createUser(user, function(error) {
 				  if (error === null) {
-				    console.log("User created successfully");
-						//this.transitionToRoute('login');
+						e.get('controllers.login').send('login', user, {
+							email: user.email,
+							name: e.get('name')
+						});
 				  } else {
-				    console.log("Error creating user:", error);
+				    alert(error);
 				  }
 				});
 			} else {

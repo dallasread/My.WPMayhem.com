@@ -7,6 +7,7 @@ var Installation = DS.Model.extend({
 	db_usage: DS.attr('string', { defaultValue: '0.00' }),
 	clone_id: DS.attr('string'),
 	restore_id: DS.attr('string'),
+	users: DS.hasMany('user', { async: true }),
 	backups: DS.hasMany('backup', { async: true }),
 	wp_prefix: DS.attr('string'),
 	wp_admin_path: DS.attr('string', { defaultValue: '/backoffice' }),

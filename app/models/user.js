@@ -1,13 +1,14 @@
 import DS from 'ember-data';
 
-var Backup = DS.Model.extend({
+var User = DS.Model.extend({
 	name: DS.attr('string'),
 	email: DS.attr('string'),
-	created_at: DS.attr('string', { defaultValue: new Date().getTime() })
+	created_at: DS.attr('string', { defaultValue: new Date().getTime() }),
+	installations: DS.hasMany('installation', { async: true }),
 });
 
-Backup.reopenClass({
+User.reopenClass({
   FIXTURES: []
 });
 
-export default Backup;
+export default User;

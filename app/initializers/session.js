@@ -10,8 +10,17 @@ export default {
 				window.firebase = new window.Firebase("https://wpmayhem.firebaseio.com");
 				window.firebase.onAuth(function(auth) {
 				  if (auth) {
-				    console.log("User ID: " + auth.uid + ", Provider: " + auth.provider);
-						e.set('auth', auth);
+						var user = { id: auth.uid };
+						e.set('auth', user);
+						
+						window.firebase.child('users/' + user.id).on('value', function(snapshot) {
+							var user = snapshot.val();
+							
+							if (user) {
+								user.id = auth.uid;
+								e.set('auth', user);
+							}
+						});
 				  } else {
 						console.log('logged out');
 						e.set('auth', false);
