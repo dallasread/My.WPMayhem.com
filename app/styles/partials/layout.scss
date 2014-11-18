@@ -66,6 +66,7 @@ body {
 				position: relative;
 				top: 2px;
 				margin-right: 12px;
+				float: left;
 			}
 
 			span {
@@ -2468,16 +2469,21 @@ body {
 			text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
 
 			.avatar {
-				max-width: 41px;
-				border-radius: 50%;
-				position: relative;
-				top: 2px;
-				margin-right: 12px;
+				float: left;
+				
+				img {
+					border-radius: 50%;
+					max-width: 41px;
+					position: relative;
+					top: 2px;
+					margin-right: 12px;
+					float: left;
+				}
 			}
 
 			span {
 				position: relative;
-				top: 4px;
+				top: 12px;
 
 				@media (min-width: $minMedium) and (max-width: $maxMedium) {
 					display: none;

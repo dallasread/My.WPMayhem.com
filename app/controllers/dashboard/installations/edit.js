@@ -13,6 +13,7 @@ export default Ember.ObjectController.extend({
 				installation.destroyRecord();
 				this.transitionToRoute('dashboard');
 			}
+			return false;
 		}
 	}
 });

@@ -13,6 +13,7 @@
 	<li>Add Users</li>
 </ul>
 
+<h2>Backups</h2>
 <ul>
 	{{#each backups}}
 		<li>
@@ -21,5 +22,12 @@
 			<a href="#" {{action 'cloneFromBackup' .}}>Create New Installation from Clone</a> -
 			{{started_at}}
 		</li>
+	{{/each}}
+</ul>
+
+<h2>Users</h2>
+<ul>
+	{{#each users}}
+		<li>{{name}}</li>
 	{{/each}}
 </ul>

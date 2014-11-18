@@ -10,16 +10,19 @@ export default Ember.ObjectController.extend({
 				window.firebase.child('installations/' + installation.id + '/backups/' + backup.id).set(true);
 				if (typeof callback !== "undefined") { callback(backup); }
 			});
+			return false;
 		},
 		restoreFromBackup: function(backup) {
 			backup.get('installation').then(function(installation) {
 				installation.set('restore_id', backup.id).save();
 			});
+			return false;
 		},
 		cloneFromBackup: function(backup) {
 			var e = this;
 			backup.get('installation').then(function(installation) {
 				var data = installation.toJSON();
+				delete data.users;
 				data.name += ' Clone';
 				data.restore_id = backup.id;
 				e.store.createRecord('installation', data).save().then(function(new_installation) {
@@ -28,6 +31,7 @@ export default Ember.ObjectController.extend({
 					e.transitionToRoute('dashboard.installations.show', new_installation);
 				});
 			});
+			return false;
 		}
 	}
 });

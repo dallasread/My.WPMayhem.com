@@ -8,11 +8,13 @@ export default Ember.Controller.extend({
 			  this.set('previousTransition', transition);
 				this.transitionToRoute('login');
 			}
+			return false;
 		},
 		redirectIfAuthenticated: function() {
 			if (this.get('session.user')) {
 				this.transitionToRoute('dashboard');
 			}
+			return false;
 		},
 		login: function(user, update_attrs) {
 			var e = this;
@@ -29,7 +31,7 @@ export default Ember.Controller.extend({
 			    var userController = e.get('controllers.user');
 				  var previousTransition = userController.get('previousTransition');
 					
-					if (update_attrs !== null) {
+					if (typeof update_attrs === 'object') {
 						window.firebase.child('users/' + auth.uid).set(update_attrs);
 					}
 			    
@@ -43,12 +45,15 @@ export default Ember.Controller.extend({
 			    alert("invalid");
 			  }
 			});
+			
+			return false;
 		},
 		logout: function() {
 			if (confirm('Are you sure you want to log out?')) {
 				window.firebase.unauth();
 				this.transitionToRoute('login');
 			}
+			return false;
 		}
 	}
 });

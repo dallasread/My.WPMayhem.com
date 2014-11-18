@@ -3,7 +3,7 @@
 		<div id="sidebar-default" class="main-sidebar">
 			<div class="current-user">
 				{{#link-to "dashboard.me" class="name"}}
-					<img class="avatar" src="images/avatars/1.jpg" />
+					{{gravatar-image email=session.user.email size=50 class='avatar'}}
 					<span>
 						{{session.user.name}}
 						<!-- <i class="fa fa-chevron-down"></i> -->
