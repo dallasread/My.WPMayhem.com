@@ -52,11 +52,23 @@
 							<span>System Status</span>
 						{{/link-to}}
 					</li>
+					{{#if session.user.admin}}
+						<li>
+							{{#link-to "dashboard.admin.index"}}
+								<i class="ion-settings"></i> 
+								<span>Admin Tools</span>
+							{{/link-to}}
+						</li>
+					{{/if}}
 				</ul>
 			</div>
 			<div class="bottom-menu hidden-sm">
 				<ul>
-					<li><a href="#"><i class="ion-help"></i></a></li>
+					<li>
+						{{#link-to "dashboard.help"}}
+							<i class="ion-help"></i>
+						{{/link-to}}
+					</li>
 					<li>
 						<a href="#" {{action 'logout' target='controllers.login'}}><i class="ion-log-out"></i></a>
 					</li>

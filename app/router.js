@@ -12,6 +12,10 @@ Router.map(function() {
 	this.route('dashboard', function() {
 		this.route('me');
 	  this.route('status');
+	  this.route('help');
+	  this.route('admin', function() {
+	  	
+	  });
 		this.route('installations', function() {
 			this.route('new');
 			this.route('show', { path: ':installation_id' });
