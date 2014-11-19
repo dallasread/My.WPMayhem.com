@@ -31,8 +31,8 @@
 				<h3>Manage Your Sites</h3>
 				<ul>
 					<li>
-						{{#link-to "dashboard"}}
-							<i class="ion-android-earth"></i> 
+						{{#link-to "dashboard.installations.index"}}
+							<i class="ion-grid"></i> 
 							<span>Dashboard</span>
 						{{/link-to}}
 						
@@ -45,6 +45,12 @@
 								</li>
 							{{/each}}
 						</ul>
+					</li>
+					<li>
+						{{#link-to "dashboard.status"}}
+							<i class="ion-flash"></i> 
+							<span>System Status</span>
+						{{/link-to}}
 					</li>
 				</ul>
 			</div>

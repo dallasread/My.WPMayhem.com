@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
 		},
 		redirectIfAuthenticated: function() {
 			if (this.get('session.user')) {
-				this.transitionToRoute('dashboard');
+				this.transitionToRoute('dashboard.installations.index');
 			}
 			return false;
 		},
@@ -39,7 +39,7 @@ export default Ember.Controller.extend({
 						userController.set('previousTransition', null);
 						previousTransition.retry();
 					} else {
-						e.transitionToRoute('dashboard');
+						e.transitionToRoute('dashboard.installations.index');
 					}
 			  } else {
 			    alert("invalid");

@@ -11,6 +11,7 @@ Router.map(function() {
 	this.route('password');
 	this.route('dashboard', function() {
 		this.route('me');
+	  this.route('status');
 		this.route('installations', function() {
 			this.route('new');
 			this.route('show', { path: ':installation_id' });
