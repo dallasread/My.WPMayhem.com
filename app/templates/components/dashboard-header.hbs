@@ -4,20 +4,32 @@
 	</div>
 
 	<div class="page-title">
-		{{#if name}}
-			{{name}}
+		{{#if installation}}
+			{{installation.name}}
 		{{else}}
-			Your WordPress Sites
+			{{#if name}}
+				{{name}}
+			{{else}}
+				Your WordPress Sites
+			{{/if}}
 		{{/if}}
 	</div>
 	
-	{{#if name}}
-		{{#link-to "dashboard.installations.edit" . class="new-user btn btn-success pull-right"}}
-			<span>Edit Info</span>
-		{{/link-to}}
+	{{#if installation}}
+		{{#if can_edit}}
+			{{#link-to "dashboard.installations.edit" installation class="new-user btn btn-success pull-right"}}
+				<span>Edit Info</span>
+			{{/link-to}}
+		{{else}}
+			{{#link-to "dashboard.installations.show" installation class="new-user btn btn-success pull-right"}}
+				<span>Back</span>
+			{{/link-to}}
+		{{/if}}
 	{{else}}
-		{{#link-to "dashboard.installations.new" class="new-user btn btn-success pull-right"}}
-			<span>Add Installation</span>
-		{{/link-to}}
+		{{#if add_new}}
+			{{#link-to "dashboard.installations.new" class="new-user btn btn-success pull-right"}}
+				<span>Add Installation</span>
+			{{/link-to}}
+		{{/if}}
 	{{/if}}
 </div>
