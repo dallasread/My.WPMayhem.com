@@ -1,6 +1,17 @@
-<input type="search">
+{{admin-header name="Users"}}
 
-<table class="datatable">
+<input type="search" placeholder="Search...">
+
+<select>
+	<option>All Plans</option>
+	{{#each plans}}
+		<option {{bind-attr id=id}}>{{id}}</option>
+	{{/each}}
+</select>
+
+<div class="table_wrapper">
+
+<table class="table">
 	<thead>
 		<th>Admin</th>
 		<th>Active</th>
@@ -21,4 +32,4 @@
 			</tr>
 		{{/each}}
 	</tbody>
-</table>
+</table></div>

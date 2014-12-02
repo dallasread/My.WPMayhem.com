@@ -1,0 +1,17 @@
+.table {
+	td {
+		padding: 11px 20px;
+		border-bottom: 1px solid #edf2f7;
+	}
+	
+	th {
+		padding: 11px 20px;
+		border-top: 1px solid #D4DBE4;
+		border-bottom: 1px solid #dee3ea;
+		box-shadow: inset 0 1px rgba(255, 255, 255, 0.79);
+		box-shadow: 0 1px 1px rgba(66, 85, 124, 0.14);
+		text-shadow: 1px 1px #fff;
+		background: linear-gradient(#f7f8fc, #f8f9fc);
+		color: #444; 
+	}
+}
