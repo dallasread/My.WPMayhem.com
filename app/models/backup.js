@@ -10,8 +10,4 @@ var Backup = DS.Model.extend({
   }.property('started_at', 'finished_at')
 });
 
-Backup.reopenClass({
-  FIXTURES: []
-});
-
 export default Backup;

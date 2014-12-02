@@ -15,7 +15,8 @@ export default Ember.Controller.extend({
 				  if (error === null) {
 						e.get('controllers.login').send('login', user, {
 							email: user.email,
-							name: e.get('name')
+							name: e.get('name'),
+							referral_token: window.md5(user.email, 987)
 						});
 				  } else {
 				    alert(error);

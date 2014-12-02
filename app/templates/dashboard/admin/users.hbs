@@ -1,0 +1,24 @@
+<input type="search">
+
+<table class="datatable">
+	<thead>
+		<th>Admin</th>
+		<th>Active</th>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Installations</th>
+		<th>Plan</th>
+	</thead>
+	<tbody>
+		{{#each}}
+			<tr>
+				<td>{{input type="checkbox" checked=admin}}</td>
+				<td>{{input type="checkbox" checked=active}}</td>
+				<td>{{name}}</td>
+				<td>{{email}}</td>
+				<td>{{installations_count}}</td>
+				<td>{{plan.name}}</td>
+			</tr>
+		{{/each}}
+	</tbody>
+</table>

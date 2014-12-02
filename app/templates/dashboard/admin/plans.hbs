@@ -1,0 +1,26 @@
+Plans
+
+<table class="datatable">
+	<thead>
+		<th>Active</th>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Amount</th>
+		<th>Interval</th>
+		<th>Trial Period</th>
+		<th>Users</th>
+	</thead>
+	<tbody>
+		{{#each}}
+			<tr>
+				<td>{{input type="checkbox" checked=active}}</td>
+				<td>{{id}}</td>
+				<td>{{name}}</td>
+				<td>{{amount}}</td>
+				<td>{{interval}}</td>
+				<td>{{trial_period}}</td>
+				<td>{{users_count}}</td>
+			</tr>
+		{{/each}}
+	</tbody>
+</table>

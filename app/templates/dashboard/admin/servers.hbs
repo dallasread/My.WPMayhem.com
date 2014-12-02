@@ -1,0 +1,20 @@
+SERVERS
+
+<table class="datatable">
+	<thead>
+		<th>Active</th>
+		<th>IP</th>
+		<th>Location</th>
+		<th>Installations</th>
+	</thead>
+	<tbody>
+		{{#each}}
+			<tr>
+				<td>{{input type="checkbox" checked=active}}</td>
+				<td>{{ip}}</td>
+				<td>{{location}}</td>
+				<td>{{installations_count}}</td>
+			</tr>
+		{{/each}}
+	</tbody>
+</table>

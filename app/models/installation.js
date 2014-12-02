@@ -21,8 +21,4 @@ var Installation = DS.Model.extend({
   }.property('address', 'php_my_admin_path')
 });
 
-Installation.reopenClass({
-  FIXTURES: []
-});
-
 export default Installation;

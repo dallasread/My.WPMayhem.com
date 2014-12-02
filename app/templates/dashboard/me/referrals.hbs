@@ -1,0 +1,25 @@
+<h2>
+	Referrals
+</h2>
+
+<p class="intro">
+	Get paid to refer others! Your referral link is:<br>
+	<a {{bind-attr href=session.user.referral_url}}>
+		{{session.user.referral_url}}
+	</a>
+</p>
+
+<h3 class="intro">
+	You currently have <strong>{{plural-ize session.user.credits "available credit" "available credits"}}</strong>!
+</h3>
+
+{{#if session.user.referrals}}
+	<h2>{{plural-ize session.user.referrals_count "Credit" "Credits"}} Earned</h2>
+	<table>
+		{{#each session.user.referrals}}
+			<tr>
+				<td>{{ invitee.name }} @ {{ created_at }}</td>
+			</tr>
+		{{/each}}
+	</table>
+{{/if}}

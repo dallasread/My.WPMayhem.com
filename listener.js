@@ -3,5 +3,6 @@
 	'backupInstallation',
 	'restoreFromBackup',
 	'cloneFromBackup',
-	'deleteInstallation'
+	'deleteInstallation',
+	'referralIsSet'
 ]

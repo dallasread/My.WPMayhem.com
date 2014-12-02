@@ -2,13 +2,14 @@
 	<div id="wrapper">
 		<div id="sidebar-default" class="main-sidebar">
 			<div class="current-user">
-				{{#link-to "dashboard.me" class="name"}}
+				{{#link-to "dashboard.me.profile" class="name"}}
 					{{gravatar-image email=session.user.email size=50 class='avatar'}}
 					<span>
 						{{session.user.name}}
 						<!-- <i class="fa fa-chevron-down"></i> -->
 					</span>
 				{{/link-to}}
+
 				<ul class="menu">
 					<li>
 						<a href="account-profile.html">Account settings</a>
@@ -27,15 +28,16 @@
 					</li>
 				</ul>
 			</div>
+			
 			<div class="menu-section">
 				<h3>Manage Your Sites</h3>
 				<ul>
 					<li>
 						{{#link-to "dashboard.installations.index"}}
-							<i class="ion-grid"></i> 
+							<i class="ion-grid"></i>
 							<span>Dashboard</span>
 						{{/link-to}}
-						
+
 						<ul class="submenu" style="display: block; ">
 							{{#each installations}}
 								<li>
@@ -46,20 +48,43 @@
 							{{/each}}
 						</ul>
 					</li>
-					<li>
-						{{#link-to "dashboard.status"}}
-							<i class="ion-flash"></i> 
-							<span>System Status</span>
-						{{/link-to}}
-					</li>
 					{{#if session.user.admin}}
 						<li>
 							{{#link-to "dashboard.admin.index"}}
-								<i class="ion-settings"></i> 
+								<i class="ion-settings"></i>
 								<span>Admin Tools</span>
 							{{/link-to}}
+							
+							<ul class="submenu" style="display: block; ">
+								<li>
+									{{#link-to "dashboard.admin.servers"}}
+										Servers
+									{{/link-to}}
+								</li>
+								<li>
+									{{#link-to "dashboard.admin.plans"}}
+										Plans
+									{{/link-to}}
+								</li>
+								<li>
+									{{#link-to "dashboard.admin.users"}}
+										Users
+									{{/link-to}}
+								</li>
+								<li>
+									{{#link-to "dashboard.admin.coupons"}}
+										Coupons
+									{{/link-to}}
+								</li>
+							</ul>
 						</li>
 					{{/if}}
+					<li>
+						{{#link-to "dashboard.status"}}
+							<i class="ion-flash"></i>
+							<span>System Status</span>
+						{{/link-to}}
+					</li>
 				</ul>
 			</div>
 			<div class="bottom-menu hidden-sm">
@@ -79,6 +104,6 @@
 		<div id="content">
 			{{outlet}}
 		</div>
-		
+
 	</div>
 </div>

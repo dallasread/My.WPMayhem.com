@@ -1,0 +1,11 @@
+<h2>Notices</h2>
+
+<table>
+	<tbody>
+		{{#each session.user.notifications}}
+			<tr>
+				<td>{{ message }}</td>
+			</tr>
+		{{/each}}
+	</tbody>
+</table>

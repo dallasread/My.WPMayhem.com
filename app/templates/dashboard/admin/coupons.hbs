@@ -1,0 +1,24 @@
+COUPONS
+
+<table class="datatable">
+	<thead>
+		<th>Active</th>
+		<th>Code</th>
+		<th>Percent</th>
+		<th>Amount</th>
+		<th>Duration</th>
+		<th>Users</th>
+	</thead>
+	<tbody>
+		{{#each}}
+			<tr>
+				<td>{{input type="checkbox" checked=active}}</td>
+				<td>{{code}}</td>
+				<td>{{percent_off}}</td>
+				<td>{{amount_off}}</td>
+				<td>{{duration}}</td>
+				<td>{{users_count}}</td>
+			</tr>
+		{{/each}}
+	</tbody>
+</table>

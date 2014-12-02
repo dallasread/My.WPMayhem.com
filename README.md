@@ -1,8 +1,21 @@
-# Wpmayhem
+# WPMayhem
 
-This README outlines the details of collaborating on this Ember application.
+## User Todo
 
-A short introduction of this app could easily go here.
+* Installation Users invite
+* Installation live installation HD / RAM / DB
+
+## Admin Todo
+
+* Affiliate system for credit (automatically assigned)
+* Autoupdating kernel
+* user search with billing
+* DO servers (with HD Overall and RAM)
+* Plans (limits, price)
+* Send customers message
+* Coupon Code
+* Deactivate User
+* Deactivate Installation
 
 ## Prerequisites
 
