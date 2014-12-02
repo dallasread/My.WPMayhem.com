@@ -11,10 +11,10 @@
 		<th>Users</th>
 	</thead>
 	<tbody>
-		{{#each}}
+		{{#each model}}
 			<tr>
 				<td>{{input type="checkbox" checked=active}}</td>
-				<td>{{id}}</td>
+				<td>{{permalink}}</td>
 				<td>{{name}}</td>
 				<td>{{amount}}</td>
 				<td>{{interval}}</td>
